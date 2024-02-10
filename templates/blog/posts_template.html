@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>All posts</title>
+</head>
+<body>
+    <h1>Posts</h1>
+    <ul>
+    {% for post in post_list %}
+        <li><a href="{% url 'post' post.id %}"">{{ post.title }} ({{post.published_date}})</a></li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

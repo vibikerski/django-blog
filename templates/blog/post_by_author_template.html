@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{author.name}}</title>
+</head>
+<body>
+    <h1>Posts by {{author.name}}</h1>
+    <p>{{author.name}}'s bio:</p>
+    <p>{{author.bio}}</p>
+    <ul>
+    {% for post in post_list %}
+        <li><a href="{%url 'post' post.id%}">{{ post.title }} ({{post.published_date}})</a></li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
