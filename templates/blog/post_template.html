@@ -8,6 +8,15 @@
     <h1>{{post.title}} by <a href="{% url 'author' author.id %}">{{author.name}}</a></h1>
     <p>{{post.content}}</p>
     <p>Published on {{post.published_date}}</p>
+    <h2>Comments</h2>
+    {% if comments %}
+        {% for comment in comments %}
+            <h3><a href="{% url 'author' comment.author.id %}">{{comment.author}}</a> on {{comment.created_date}}</h3>
+            <p>{{comment.text}}</p>
+        {% endfor %}
+    {% else %}
+        <p>This comment section is empty! Consider adding something.</p>
+    {% endif %}
     <p><a href="{% url 'posts'%}">Back to all posts</a></p>
 </body>
 </html>
